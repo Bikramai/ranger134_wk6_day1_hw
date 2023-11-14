@@ -1,0 +1,12 @@
+/* Shop Page CSS */
+
+.shop-header {
+    background-image: url("../images/banner.jpg");
+    background-size: cover;
+    height: 800px;
+    color: white;
+}
+
+.shop-stats {
+    color: white;
+}
