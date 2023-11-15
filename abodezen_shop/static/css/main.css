@@ -1,10 +1,10 @@
 /* Shop Page CSS */
 
 .shop-header {
-    background-image: url("../images/banner.jpg");
+    background-image: url("../images/logo.JPG");
     background-size: cover;
     height: 800px;
-    color: white;
+    color: whitesmoke;
 }
 
 .shop-stats {
