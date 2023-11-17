@@ -2,3 +2,4 @@ abodezen_env
 .env
 migrations
 image_cache.sqlite
+api

@@ -2,7 +2,7 @@ from flask import Blueprint, render_template,flash, redirect, request
 
 
 #internal import
-from abodezen_shop.models import Product, db 
+from abodezen_shop.models import Product, Customer, Order, db 
 from abodezen_shop.forms import ProductForm
 
 #need to instantiate our Blueprint class
@@ -15,10 +15,20 @@ def shop():
 
     #we need to query our database to grab all of our products to display
     allprods = Product.query.all() #the same as SELECT * FROM products 
+    allcustomers = Customer.query.all()
+    allorders = Order.query.all()
+
+    #making our dictionary for our shop stats/info
+
+    shop_stats = {
+        'products' : len(allprods), #this is how many total products we have
+        'sales' : sum([order.order_total for order in allorders]),  #[ 27.99, 83.25, 50.99 ] sum them bad boys up
+        'customers' : len(allcustomers)
+    }
 
     our_class = "Rangers are the best "
                             #whats on left side is html, right side is whats in our route
-    return render_template('shop.html', shop=allprods, coolmessage = our_class)#looking inside our template_folder (site_templates)
+    return render_template('shop.html', shop=allprods, stats=shop_stats, coolmessage = our_class)#looking inside our template_folder (site_templates)
 
 
 @site.route('/shop/create', methods= ['GET', 'POST'])
