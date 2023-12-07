@@ -148,8 +148,8 @@ class ProdOrder(db.Model):
         self.cust_id = cust_id 
 
     def set_id(self):
-        return str(uuid.uuid4)
-    
+        return str(uuid.uuid4())
+
 
     def set_price(self, quantity, price):
 
